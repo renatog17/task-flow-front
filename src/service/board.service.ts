@@ -88,7 +88,25 @@ export class BoardService {
                 description: 'Description for Task 1',
                 creationDate: new Date(),
                 deadline: new Date()
-              },
+              },{
+                id: 4,
+                title: 'Task 1',
+                description: 'Description for Task 1',
+                creationDate: new Date(),
+                deadline: new Date()
+              },{
+                id: 4,
+                title: 'Task 1',
+                description: 'Description for Task 1',
+                creationDate: new Date(),
+                deadline: new Date()
+              },{
+                id: 4,
+                title: 'Task 1',
+                description: 'Description for Task 1',
+                creationDate: new Date(),
+                deadline: new Date()
+              }
               // Adicione outras tarefas, se necessário
             ]
           },
@@ -103,6 +121,13 @@ export class BoardService {
                 creationDate: new Date(),
                 deadline: new Date()
               },
+              {
+                id: 1,
+                title: 'Task 1',
+                description: 'Description for Task 1',
+                creationDate: new Date(),
+                deadline: new Date()
+              }
             ]
           },
           {

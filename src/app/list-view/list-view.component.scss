@@ -4,3 +4,32 @@
     background-color: #F9F7F7;
     border-radius: 5px;
 }
+
+.tasks-container{
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 200px); /* Defina a altura máxima para ocupar o restante da tela, ajustando conforme necessário */
+    overflow-y: auto;
+}
+
+/* Estilização da barra de rolagem */
+.tasks-container::-webkit-scrollbar {
+    width: 5px; /* Largura da barra de rolagem */
+    height: 5px; /* Altura da barra de rolagem horizontal (caso necessário) */
+}
+
+/* Remove as setas (botões de scroll) */
+.tasks-container::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Estilização do 'thumb' (alça) da barra de rolagem */
+.tasks-container::-webkit-scrollbar-thumb {
+    background: #ccc; /* Cor da alça */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Estilização do 'track' (fundo) da barra de rolagem */
+.tasks-container::-webkit-scrollbar-track {
+    background: transparent; /* Cor de fundo da barra de rolagem */
+}
