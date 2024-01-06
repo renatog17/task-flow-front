@@ -1,0 +1,4 @@
+<h3 class="title-list">{{list.title}}</h3>
+<div *ngFor="let task of list.tasks">
+    <app-task-view [task]="task"></app-task-view>
+</div>

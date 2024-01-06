@@ -1,0 +1,7 @@
+<div class="task" (click)="showModal()">
+    <h4 class="task-title">{{task.title}}</h4>
+    <p class="task-description">{{task.description}}</p>
+    <!-- Um modal será exibido -->
+    <app-modal-task [task]="task" *ngIf="isModalVisible"
+    (closeModalEvent)="handleModalClosed($event)"></app-modal-task>
+</div>

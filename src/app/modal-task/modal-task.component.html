@@ -1,0 +1,10 @@
+<div class="modal">
+  <div class="modal-content">
+      <h4>{{task.title}}</h4>
+      <p>{{task.description}}</p>
+      <br>
+      Criado em: <p>{{task.creationDate}}</p>
+      Prazo: <p>{{task.deadline}}</p>
+      <button (click)="closeModal($event)">Fechar</button>
+  </div>
+</div>

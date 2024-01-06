@@ -1,0 +1,17 @@
+.main-container {
+    display: flex;
+    height: 100vh; /* Define a altura total da tela */
+}
+  
+.sidebar {
+    flex: 0 0 20%; /* Ocupa 20% do espaço disponível */
+    background-color: #112D4E; /* Cor de fundo opcional para o sidebar */
+    font-family: "Inria Sans", sans-serif;
+    color: #F9F7F7;
+}
+  
+.board-view {
+    flex: 1; /* Ocupa o restante do espaço disponível */
+    background-color: #F9F7F7; /* Cor de fundo opcional para o board view */
+    overflow-x: hidden;
+}

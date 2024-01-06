@@ -1,0 +1,6 @@
+<h2 class="board-title">{{selectedBoard.title}}</h2>
+<div class="lists-container">
+    <div *ngFor="let item of selectedBoard.lists" class="list-item">
+        <app-list-view [list]="item"></app-list-view>
+    </div>
+</div>
