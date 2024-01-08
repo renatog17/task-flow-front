@@ -8,6 +8,9 @@ import { BoardViewComponent } from './board-view/board-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { TaskViewComponent } from './task-view/task-view.component';
 import { ModalTaskComponent } from './modal-task/modal-task.component';
+import { FormsModule } from '@angular/forms';
+import { ItemMenuComponent } from './item-menu/item-menu.component';
+import { NewBoardComponent } from './new-board/new-board.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { ModalTaskComponent } from './modal-task/modal-task.component';
     BoardViewComponent,
     ListViewComponent,
     TaskViewComponent,
-    ModalTaskComponent
+    ModalTaskComponent,
+    ItemMenuComponent,
+    NewBoardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,16 +4,16 @@ export interface Task {
     description: string;
     creationDate: Date;
     deadline: Date;
+    listId: number;
 }
 
 export interface TaskList{
     id: number;
-    tasks: Task[];
+    boardId: number;
     title: string;
 }
 
 export interface Board{
-    id:number;
-    lists: TaskList[];
+    id?: number;
     title: string;
 }

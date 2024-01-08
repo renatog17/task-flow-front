@@ -1,0 +1,18 @@
+.new-board{
+    background-color:  #112D4E;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    margin: 5px 60px;
+}
+
+.new-board:focus{
+    border: none;
+    background-color: #F9F7F7;
+    outline: none;
+}
+
+.new-board::placeholder{
+    font-style: italic;
+    color: #f9f7f766;
+}

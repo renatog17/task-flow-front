@@ -1,4 +1,7 @@
 <h2 class="title-side-bar">Projects</h2>
-<div *ngFor="let board of boards" class="item-list" (click)="setSelectedBoard(board)">
-    {{ board.title }}
-</div>
+
+<app-item-menu  *ngFor = "let board of boards" [board]="board">
+</app-item-menu>
+
+
+<app-new-board></app-new-board>

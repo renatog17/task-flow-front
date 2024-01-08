@@ -12,35 +12,57 @@ export class BoardService {
 
   private boards: Board[] = [];
   private boardsSubject: BehaviorSubject<Board[]> = new BehaviorSubject<Board[]>([]);
-  
+
   constructor() {
     const savedBoards = localStorage.getItem('boards');
-    if(savedBoards){
+    if (savedBoards) {
       this.boards = JSON.parse(savedBoards);
       this.boardsSubject.next(this.boards);
-    }else{
+    } else {
       this.initializeLocalStorage();
     }
   }
 
-  getBoards():Board[]{
+  addBoard(newBoard: Board): void {
+    let maxId = 0;
+    this.boards.forEach(board => {
+      if (board.id !== undefined && !isNaN(board.id)) {
+        if(board.id > maxId){
+          maxId = board.id;
+        }
+      }
+    })
+    const newId = maxId+1;
+    newBoard.id = newId;
+
+    this.boards.push(newBoard);
+    this.saveBoardsToLocalStorage();
+  }
+
+  getBoards(): Board[] {
     return this.boards;
   }
 
   getBoardById(id: number): Board | undefined {
     return this.boards.find(board => board.id === id);
   }
-
-  addBoard(newBoard:Board):void{
-    this.boards.push(newBoard);
-    this.saveBoardsToLocalStorage();
+// 
+  deleteBoard(id: number): void {
+    const boardIndex = this.boards.findIndex(board => board.id === id);
+  
+    if (boardIndex !== -1) {
+      this.boards.splice(boardIndex, 1);
+      this.saveBoardsToLocalStorage();
+      this.boardsSubject.next(this.boards);
+    }
   }
+//
 
-  private saveBoardsToLocalStorage(): void{
+  private saveBoardsToLocalStorage(): void {
     localStorage.setItem('boards', JSON.stringify(this.boards))
   }
 
-  getBoardObservable(): BehaviorSubject<Board[]>{
+  getBoardObservable(): BehaviorSubject<Board[]> {
     return this.boardsSubject;
   }
 
@@ -51,151 +73,21 @@ export class BoardService {
   getSelectedBoard(): Observable<any> {
     return this.selectedBoard$;
   }
-  
+
   private initializeLocalStorage(): void {
     // Exemplo de dados iniciais para os boards
     const initialBoards: Board[] = [
       {
         id: 1,
-        title: 'Provas',
-        lists: [
-          {
-            id: 1,
-            title: 'To Do',
-            tasks: [
-              {
-                id: 1,
-                title: 'Prova de matemática',
-                description: 'Revisar função do segundo grau',
-                creationDate: new Date(),
-                deadline: new Date()
-              },{
-                id: 2,
-                title: 'Prova de Física',
-                description: 'Ler capítulo 2 do livro de Alvarengo, reassistir série cosmos e fazer o experimento de voltar no tempo para participar da festa de Stephen Hawking',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-              {
-                id: 3,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },{
-                id: 4,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },{
-                id: 4,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },{
-                id: 4,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },{
-                id: 4,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              }
-              // Adicione outras tarefas, se necessário
-            ]
-          },
-          {
-            id:2,
-            title: 'teste',
-            tasks: [
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              }
-            ]
-          },
-          {
-            id:3,
-            title: 'teste3',
-            tasks: [
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-            ]
-          },
-          {
-            id:4,
-            title: 'teste4',
-            tasks: [
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-            ]
-          }
-          ,
-          {
-            id:5,
-            title: 'teste5',
-            tasks: [
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-            ]
-          }
-          ,
-          {
-            id:6,
-            title: 'teste6',
-            tasks: [
-              {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description for Task 1',
-                creationDate: new Date(),
-                deadline: new Date()
-              },
-            ]
-          }
-          // Adicione outras listas, se necessário
-        ]
+        title: "Errands"
       },
       {
-        id:2,
-        title:"Estudo",
-        lists:[]
+        id: 12,
+        title: "Estudo"
       },
       {
-        id:3,
-        title:"Jogos",
-        lists:[]
+        id: 13,
+        title: "Jogos"
       }
       // Adicione outros boards, se necessário
     ];

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BoardService } from 'src/service/board.service';
+import { ListService } from 'src/service/list.service';
+import { TaskList } from '../task';
 
 @Component({
   selector: 'app-board-view',
@@ -9,9 +11,11 @@ import { BoardService } from 'src/service/board.service';
 })
 export class BoardViewComponent implements OnInit{
 
-  constructor( private boardService: BoardService){}
+  constructor( private boardService: BoardService, private listService: ListService){}
 
   selectedBoard: any;
+  taskList: TaskList[] = [];
+  imageUrl = "assets/trash.png"
   private boardSubscription: Subscription = new Subscription();
 
 
@@ -19,6 +23,7 @@ export class BoardViewComponent implements OnInit{
     this.boardSubscription = this.boardService.getSelectedBoard().subscribe(board => {
       this.selectedBoard = board;
       console.log("Board selecionado: ", this.selectedBoard);
+      this.taskList = this.listService.readTaskListByBoardId(this.selectedBoard.id); 
     });
   }
 

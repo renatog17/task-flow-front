@@ -10,6 +10,7 @@ import { Board } from '../task';
 export class SideBarComponent implements OnInit{
   constructor(private boardService: BoardService){}
   boards: Board[] = []
+
   ngOnInit(): void {
     //this.boards = this.boardService.getBoards();
     this.boardService.getBoardObservable().subscribe(( boards:Board[]) =>{
