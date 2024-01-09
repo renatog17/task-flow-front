@@ -1,8 +1,25 @@
-.title-list{
+.top-bar-list{
+    display: flex;
+    flex-direction: row;
     margin: 10px;
     padding: 10px;
     background-color: #F9F7F7;
     border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// .title-list{
+//     margin: 10px;
+//     padding: 10px;
+//     background-color: #F9F7F7;
+//     border-radius: 5px;
+// }
+.reticencias-icon:hover{
+    background-color: rgb(218, 218, 218);
+    border-radius: 5px;
+    //  height: 25px;
+    cursor: pointer;
 }
 
 .tasks-container{

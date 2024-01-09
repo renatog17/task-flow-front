@@ -12,6 +12,7 @@ export class ListViewComponent implements OnInit{
   
   @Input() list: any;
   tasks: Task[] = []
+  imageUrl = "assets/reticencias.png";
 
   constructor(private taskService: TaskService){
 
