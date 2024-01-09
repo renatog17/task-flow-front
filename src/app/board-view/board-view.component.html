@@ -9,4 +9,5 @@
     <div *ngFor="let item of taskList" class="list-item">
         <app-list-view [list]="item"></app-list-view>
     </div>
+    <app-new-list class="new-board" [board]="selectedBoard"></app-new-list>
 </div>

@@ -15,7 +15,6 @@ export class NewBoardComponent {
   newBoardName:string = "";
 
   onEnterKey(){
-    console.log(this.newBoardName)
     const novoBoard: Board = {
       title: this.newBoardName
     };

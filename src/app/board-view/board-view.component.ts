@@ -18,18 +18,24 @@ export class BoardViewComponent implements OnInit{
   taskList: TaskList[] = [];
   imageUrl = "assets/trash.png"
   private boardSubscription: Subscription = new Subscription();
-
+  private taskListSubscription: Subscription = new Subscription();
 
   ngOnInit(): void {
     this.boardSubscription = this.boardService.getSelectedBoard().subscribe(board => {
       this.selectedBoard = board;
       this.taskList = this.listService.readTaskListByBoardId(this.selectedBoard.id); 
+      
+      this.taskListSubscription = this.listService.getTaskListObservable().subscribe(updatedLists => {
+        this.taskList = updatedLists.filter(list => list.boardId === this.selectedBoard.id)
+      })
     });
+
   }
 
   ngOnDestroy(): void {
     // Certifique-se de cancelar a inscrição para evitar vazamentos de memória
     this.boardSubscription.unsubscribe();
+    this.taskListSubscription.unsubscribe();
   }
 
   toggleEdit(){

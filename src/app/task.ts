@@ -9,7 +9,7 @@ export interface Task {
 }
 
 export interface TaskList{
-    id: number;
+    id?: number;
     boardId: number;
     title: string;
 }

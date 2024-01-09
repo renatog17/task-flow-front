@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TaskList } from 'src/app/task';
+import { Task, TaskList } from 'src/app/task';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,10 @@ export class ListService {
 
   deleteTaskList(taskListId: number) {
 
+  }
+
+  getTaskListObservable(): BehaviorSubject<TaskList[]> {
+    return this.listsSubject;
   }
 
   //métodos auxiliares

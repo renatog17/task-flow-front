@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ItemMenuComponent } from './item-menu/item-menu.component';
 import { NewBoardComponent } from './new-board/new-board.component';
 import { ModalBoardDeleteConfirmationComponent } from './modal-board-delete-confirmation/modal-board-delete-confirmation.component';
+import { NewListComponent } from './new-list/new-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModalBoardDeleteConfirmationComponent } from './modal-board-delete-conf
     ItemMenuComponent,
     NewBoardComponent,
     ModalBoardDeleteConfirmationComponent,
+    NewListComponent,
   ],
   imports: [
     BrowserModule,
