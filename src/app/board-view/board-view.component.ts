@@ -13,6 +13,7 @@ export class BoardViewComponent implements OnInit{
 
   constructor( private boardService: BoardService, private listService: ListService){}
 
+  editing = false;
   selectedBoard: any;
   taskList: TaskList[] = [];
   imageUrl = "assets/trash.png"
@@ -22,7 +23,7 @@ export class BoardViewComponent implements OnInit{
   ngOnInit(): void {
     this.boardSubscription = this.boardService.getSelectedBoard().subscribe(board => {
       this.selectedBoard = board;
-      console.log("Board selecionado: ", this.selectedBoard);
+      // console.log("Board selecionado: ", this.selectedBoard);
       this.taskList = this.listService.readTaskListByBoardId(this.selectedBoard.id); 
     });
   }
@@ -30,5 +31,15 @@ export class BoardViewComponent implements OnInit{
   ngOnDestroy(): void {
     // Certifique-se de cancelar a inscrição para evitar vazamentos de memória
     this.boardSubscription.unsubscribe();
+  }
+
+  toggleEdit(){
+    this.editing = !this.editing;
+  }
+
+  updateBoard(titleInput: string){
+    this.selectedBoard.title = titleInput;
+    this.boardService.updateBoard(this.selectedBoard)
+    this.editing = !this.editing;
   }
 }

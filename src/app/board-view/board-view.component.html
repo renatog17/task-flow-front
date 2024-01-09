@@ -1,3 +1,6 @@
+<h1 class="board-title" *ngIf="!editing" (click)="toggleEdit()">{{selectedBoard.title}}</h1>
+<input #titleInput class="input-board-title" *ngIf="editing" [value]="selectedBoard.title" (blur)="toggleEdit()" (keyup.enter)="updateBoard(titleInput.value)">
+
 <div class="lists-container">
     <div *ngFor="let item of taskList" class="list-item">
         <app-list-view [list]="item"></app-list-view>

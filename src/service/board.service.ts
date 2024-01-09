@@ -46,7 +46,17 @@ export class BoardService {
   getBoardById(id: number): Board | undefined {
     return this.boards.find(board => board.id === id);
   }
-// 
+
+  updateBoard(updatedBoard: Board): void {
+    const index = this.boards.findIndex(board => board.id === updatedBoard.id);
+    
+    if (index !== -1) {
+      this.boards[index] = { ...this.boards[index], ...updatedBoard };
+      this.saveBoardsToLocalStorage();
+      this.boardsSubject.next(this.boards);
+    }
+  }
+  // 
   deleteBoard(id: number): void {
     const boardIndex = this.boards.findIndex(board => board.id === id);
   
