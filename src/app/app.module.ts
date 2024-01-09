@@ -11,6 +11,7 @@ import { ModalTaskComponent } from './modal-task/modal-task.component';
 import { FormsModule } from '@angular/forms';
 import { ItemMenuComponent } from './item-menu/item-menu.component';
 import { NewBoardComponent } from './new-board/new-board.component';
+import { ModalBoardDeleteConfirmationComponent } from './modal-board-delete-confirmation/modal-board-delete-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NewBoardComponent } from './new-board/new-board.component';
     ModalTaskComponent,
     ItemMenuComponent,
     NewBoardComponent,
+    ModalBoardDeleteConfirmationComponent,
   ],
   imports: [
     BrowserModule,

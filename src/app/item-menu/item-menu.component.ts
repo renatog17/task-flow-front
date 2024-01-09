@@ -11,16 +11,16 @@ export class ItemMenuComponent{
   imageUrl = "assets/trash.png";
   showTrashIcon = false;
 
+  isModalVisible:boolean = false;
   @Input() board!:Board;
 
   constructor( private boardService:BoardService){
 
   }
-  // ngOnInit(): void {
-  //   console.log(this.board.id)
-  // }
 
-
+  handleModalClosed(event: boolean) {
+    this.isModalVisible = false;
+  }
   deleteBoard(board: Board){
     console.log(board.id)
     this.boardService.deleteBoard(board.id!)
@@ -28,5 +28,9 @@ export class ItemMenuComponent{
 
   setSelectedBoard(board: Board){
     this.boardService.setSelectedBoard(board);
+  }
+
+  showModal(){
+    this.isModalVisible = true;
   }
 }

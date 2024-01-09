@@ -23,7 +23,6 @@ export class BoardViewComponent implements OnInit{
   ngOnInit(): void {
     this.boardSubscription = this.boardService.getSelectedBoard().subscribe(board => {
       this.selectedBoard = board;
-      // console.log("Board selecionado: ", this.selectedBoard);
       this.taskList = this.listService.readTaskListByBoardId(this.selectedBoard.id); 
     });
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Board, Task } from 'src/app/task';
 
@@ -21,18 +22,24 @@ export class BoardService {
     } else {
       this.initializeLocalStorage();
     }
+    // solução provisória
+    const smallestIdBoard = this.boards
+      .slice()
+      .sort((a, b) => (a.id !== undefined && b.id !== undefined ? a.id - b.id : 0))[0];
+    this.setSelectedBoard(smallestIdBoard);
+    // 
   }
 
   addBoard(newBoard: Board): void {
     let maxId = 0;
     this.boards.forEach(board => {
       if (board.id !== undefined && !isNaN(board.id)) {
-        if(board.id > maxId){
+        if (board.id > maxId) {
           maxId = board.id;
         }
       }
     })
-    const newId = maxId+1;
+    const newId = maxId + 1;
     newBoard.id = newId;
 
     this.boards.push(newBoard);
@@ -49,7 +56,7 @@ export class BoardService {
 
   updateBoard(updatedBoard: Board): void {
     const index = this.boards.findIndex(board => board.id === updatedBoard.id);
-    
+
     if (index !== -1) {
       this.boards[index] = { ...this.boards[index], ...updatedBoard };
       this.saveBoardsToLocalStorage();
@@ -59,14 +66,14 @@ export class BoardService {
   // 
   deleteBoard(id: number): void {
     const boardIndex = this.boards.findIndex(board => board.id === id);
-  
+
     if (boardIndex !== -1) {
       this.boards.splice(boardIndex, 1);
       this.saveBoardsToLocalStorage();
       this.boardsSubject.next(this.boards);
     }
   }
-//
+  //
 
   private saveBoardsToLocalStorage(): void {
     localStorage.setItem('boards', JSON.stringify(this.boards))
