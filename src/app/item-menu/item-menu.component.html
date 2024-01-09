@@ -1,4 +1,4 @@
 <div class="item-menu-conteiner" (mouseenter)="showTrashIcon = true" (mouseleave)="showTrashIcon = false">
-    <p class="title">{{board.title}}</p>
+    <p class="title" (click)="setSelectedBoard(board)">{{board.title}}</p>
     <img class="trash-icon" [src]="imageUrl" [class.hide]="!showTrashIcon" (click)="deleteBoard(board)">
 </div>

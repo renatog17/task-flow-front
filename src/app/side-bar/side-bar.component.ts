@@ -18,7 +18,5 @@ export class SideBarComponent implements OnInit{
     });
   }
 
-  setSelectedBoard(board: Board){
-    this.boardService.setSelectedBoard(board);
-  }
+  
 }

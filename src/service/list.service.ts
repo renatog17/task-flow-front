@@ -26,7 +26,6 @@ export class ListService {
   }
 
   readTaskListByBoardId(boardId: number): TaskList[] {
-    console.log("Board id: "+boardId)
     return this.taskLists.filter(list => list.boardId === boardId);
   }
 

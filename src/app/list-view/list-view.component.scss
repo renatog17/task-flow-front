@@ -8,7 +8,7 @@
 .tasks-container{
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 200px); /* Defina a altura máxima para ocupar o restante da tela, ajustando conforme necessário */
+    max-height: calc(100vh - 130px); /* Defina a altura máxima para ocupar o restante da tela, ajustando conforme necessário */
     overflow-y: auto;
 }
 

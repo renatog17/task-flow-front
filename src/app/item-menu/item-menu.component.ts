@@ -26,4 +26,8 @@ export class ItemMenuComponent{
     console.log(board.id)
     this.boardService.deleteBoard(board.id!)
   }
+
+  setSelectedBoard(board: Board){
+    this.boardService.setSelectedBoard(board);
+  }
 }

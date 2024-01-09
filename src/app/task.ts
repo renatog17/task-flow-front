@@ -5,6 +5,7 @@ export interface Task {
     creationDate: Date;
     deadline: Date;
     listId: number;
+    complete: boolean;
 }
 
 export interface TaskList{

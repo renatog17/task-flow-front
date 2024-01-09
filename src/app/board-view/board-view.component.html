@@ -1,7 +1,3 @@
-<div class="title-bar">
-    <h2 class="board-title">{{selectedBoard.title}}</h2>
-    <img class="trash-icon" [src]="imageUrl">
-</div>
 <div class="lists-container">
     <div *ngFor="let item of taskList" class="list-item">
         <app-list-view [list]="item"></app-list-view>
