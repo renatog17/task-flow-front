@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BoardService } from 'src/service/board.service';
 import { Board } from '../task';
-import { NumberFormatStyle } from '@angular/common';
 
 @Component({
   selector: 'app-item-menu',

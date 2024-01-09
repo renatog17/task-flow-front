@@ -17,6 +17,4 @@ export class SideBarComponent implements OnInit{
       this.boards = boards;
     });
   }
-
-  
 }

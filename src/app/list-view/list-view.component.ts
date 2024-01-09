@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { TaskService } from 'src/service/task.service';
+import { BoardService } from 'src/service/board.service';
 
 @Component({
   selector: 'app-list-view',
@@ -11,7 +12,7 @@ export class ListViewComponent implements OnInit{
   
   @Input() list: any;
   tasks: Task[] = []
-  
+
   constructor(private taskService: TaskService){
 
   }
