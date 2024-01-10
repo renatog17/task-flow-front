@@ -4,4 +4,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Link
 
-Acesse este projeto em [Task-Flow](https://github.com/renatog17/tabela-periodica)
+Acesse este projeto em [Task-Flow](https://task-flow-front.vercel.app/)
