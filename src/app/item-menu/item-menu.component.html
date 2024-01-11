@@ -2,6 +2,6 @@
     <p class="title" (click)="setSelectedBoard(board)">{{board.title}}</p>
     <!-- <img class="trash-icon" [src]="imageUrl" [class.hide]="!showTrashIcon" (click)="deleteBoard(board)"> -->
     <img class="trash-icon" [src]="imageUrl" [class.hide]="!showTrashIcon" (click)="showModal()">
-    <app-modal-board-delete-confirmation [board]="board" *ngIf="isModalVisible" (closeModalEvent)="handleModalClosed($event)"
-    ></app-modal-board-delete-confirmation>
+    <app-modal-delete-confirmation [item]="board" *ngIf="isModalVisible" (simOptionChoisedEvent)="handleModalOption($event)"
+    ></app-modal-delete-confirmation>
 </div>

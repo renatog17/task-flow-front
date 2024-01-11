@@ -18,9 +18,12 @@ export class ItemMenuComponent{
 
   }
 
-  handleModalClosed(event: boolean) {
+  handleModalOption(event: boolean) {
+    if(event)
+      this.boardService.deleteBoard(this.board.id!)
     this.isModalVisible = false;
   }
+
   deleteBoard(board: Board){
     console.log(board.id)
     this.boardService.deleteBoard(board.id!)

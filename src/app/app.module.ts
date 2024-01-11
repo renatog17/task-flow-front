@@ -13,6 +13,7 @@ import { ItemMenuComponent } from './item-menu/item-menu.component';
 import { NewBoardComponent } from './new-board/new-board.component';
 import { ModalBoardDeleteConfirmationComponent } from './modal-board-delete-confirmation/modal-board-delete-confirmation.component';
 import { NewListComponent } from './new-list/new-list.component';
+import { ModalDeleteConfirmationComponent } from './modal-delete-confirmation/modal-delete-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NewListComponent } from './new-list/new-list.component';
     NewBoardComponent,
     ModalBoardDeleteConfirmationComponent,
     NewListComponent,
+    ModalDeleteConfirmationComponent,
   ],
   imports: [
     BrowserModule,
