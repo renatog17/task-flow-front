@@ -34,7 +34,13 @@ export class ListService {
   }
 
   deleteTaskList(taskListId: number) {
+    const taskListIndex = this.taskLists.findIndex(taskList => taskList.id === taskListId);
 
+    if (taskListIndex !== -1) {
+      this.taskLists.splice(taskListIndex, 1);
+      this.saveTaskListsToLocalStorage();
+      this.listsSubject.next(this.taskLists);
+    }
   }
 
   getTaskListObservable(): BehaviorSubject<TaskList[]> {

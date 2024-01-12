@@ -1,6 +1,7 @@
 <div class="top-bar-list">
     <h3 class="title-list">{{list.title}}</h3>
-    <img class="trash-icon" [src]="imageUrl">
+    <img class="trash-icon" [src]="imageUrl" (click)="showModal()">
+    <app-modal-delete-confirmation [item]="list" *ngIf="isModalVisible" (simOptionChoisedEvent)="handleModalOption($event)" ></app-modal-delete-confirmation>
 </div>
 <div class="tasks-container">
     <div *ngFor="let task of tasks">
