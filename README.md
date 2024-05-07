@@ -2,8 +2,8 @@
 
 TaskFlow é uma aplicação de gerenciamento de tarefas inspirada no Trello, desenvolvida em Angular.
 
-[TaskFlow Preview](https://task-flow-front.vercel.app/)
-#(https://github.com/renatog17/task-flow-front/assets/54106116/0a37cc03-4a42-4eb5-89d1-84212f9d8e92)
+[Acesse o TaskFlow aqui](https://task-flow-front.vercel.app/)
+
 
 ## Visão Geral
 
